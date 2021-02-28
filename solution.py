@@ -37,6 +37,9 @@ while run:
             if i.key == pygame.K_PAGEDOWN:
                 if float(spn.split(',')[0]) < 0.7:
                     spn = ','.join([str(i + 0.03) for i in map(float, spn.split(','))])
+            if i.key == pygame.K_ESCAPE:
+                ll, spn = menu.start_menu()
+                CONST_LL = ll
 
             num1 = float(ll.split(',')[0])
             num2 = float(ll.split(',')[1])

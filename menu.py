@@ -50,6 +50,7 @@ def start_menu():
     is_running = False
 
     search = FONT.render('Введите название объекта и нажмите Enter', 1, 'green')
+    cancel = FONT.render('Для сброса - Escape', 1, 'green')
 
     while not is_running:
         for event in pygame.event.get():
@@ -58,8 +59,11 @@ def start_menu():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     if input_box1.text:
-                        ll, top = get_coords(input_box1.text)
-                        return ll, get_spn(top)
+                        try:
+                            ll, top = get_coords(input_box1.text)
+                            return ll, get_spn(top)
+                        except Exception:
+                            input_box1.text = 'Ошибка'
             for box in input_boxes:
                 box.handle_event(event)
 
@@ -71,5 +75,6 @@ def start_menu():
             box.draw(screen)
 
         screen.blit(search, (70, 70))
+        screen.blit(cancel, (70, 100))
 
         pygame.display.flip()
