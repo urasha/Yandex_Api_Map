@@ -32,11 +32,11 @@ while run:
             run = False
         if i.type == pygame.KEYDOWN:
             if i.key == pygame.K_PAGEUP:
-                if float(spn.split(',')[0]) > 0.1:
-                    spn = ','.join([str(i - 0.01) for i in map(float, spn.split(','))])
+                if float(spn.split(',')[0]) > 0.01:
+                    spn = ','.join([str(i - 0.03) for i in map(float, spn.split(','))])
             if i.key == pygame.K_PAGEDOWN:
-                if float(spn.split(',')[0]) < 0.6:
-                    spn = ','.join([str(i + 0.01) for i in map(float, spn.split(','))])
+                if float(spn.split(',')[0]) < 0.7:
+                    spn = ','.join([str(i + 0.03) for i in map(float, spn.split(','))])
 
             num1 = float(ll.split(',')[0])
             num2 = float(ll.split(',')[1])
